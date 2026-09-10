@@ -6,6 +6,7 @@ import com.intellij.openapi.Disposable
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Disposer
 import com.intellij.ui.jcef.JBCefBrowser
+import com.intellij.ui.jcef.JBCefBrowserBase
 import com.intellij.ui.jcef.JBCefJSQuery
 import javax.swing.JComponent
 
@@ -16,7 +17,8 @@ import javax.swing.JComponent
 internal class WhackAMoleWebview(private val project: Project) : Disposable {
 
     private val browser = JBCefBrowser()
-    private val query = JBCefJSQuery.create(browser)
+    // create(JBCefBrowser) 重载是 scheduled-for-removal API（市场审核会点名），用 JBCefBrowserBase 重载。
+    private val query = JBCefJSQuery.create(browser as JBCefBrowserBase)
 
     val component: JComponent get() = browser.component
 
