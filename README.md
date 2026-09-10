@@ -1,8 +1,8 @@
-# test-plugin
+# Whack a Mole
 
-最小可发布的 IntelliJ 插件，仅用于验证 JetBrains Marketplace 提交流程。
+一个住在 IDE 工具窗口里的打地鼠小游戏（JetBrains Marketplace 提交流程验证用插件）。
 
-功能：Tools 菜单加一个 `Test Plugin: Say Hello` 动作，点击弹通知。
+玩法：右侧边栏打开 **Whack a Mole** 工具窗口 → 点 `Start` → 30 秒内点击随机冒出的地鼠（🐹）计分。
 
 ## 构建
 
@@ -10,10 +10,11 @@
 ./gradlew buildPlugin
 ```
 
-产物：`build/distributions/test-plugin-0.1.0.zip`（即上传到 Marketplace 的文件）。
+产物：`build/distributions/whack-a-mole-0.1.0.zip`（即上传到 Marketplace 的文件）。
 
-## 沙盒运行
+## 本地验证与沙盒运行
 
 ```bash
-./gradlew runIde
+./gradlew verifyPlugin   # Plugin Verifier 兼容性检查
+./gradlew runIde         # 沙盒 IDE 试玩
 ```

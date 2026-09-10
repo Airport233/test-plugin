@@ -28,7 +28,14 @@ intellijPlatform {
         ideaVersion {
             sinceBuild = "251"
         }
-        changeNotes = "Initial test build for marketplace submission flow verification."
+        changeNotes = "First release: classic 3x3 whack-a-mole in a tool window, 30-second rounds."
+    }
+
+    // verifyPlugin 要求显式声明验证目标 IDE；与构建用同一版本，本地缓存可复用。
+    pluginVerification {
+        ides {
+            ide("IC", providers.gradleProperty("platformVersion").get())
+        }
     }
 }
 
