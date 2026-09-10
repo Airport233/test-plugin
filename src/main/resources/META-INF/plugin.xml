@@ -21,7 +21,9 @@
         <ul>
             <li>Classic 3x3 whack-a-mole in a dedicated tool window.</li>
             <li>30-second rounds with live score and countdown.</li>
-            <li>Pure Swing — no network access, no background activity, no data collection.</li>
+            <li>Rendered on the IDE's embedded browser (JCEF), with a graceful
+                fallback panel when JCEF is unavailable.</li>
+            <li>No network access, no background activity, no data collection.</li>
         </ul>
 
         <b>How to play</b>
@@ -37,10 +39,14 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends optional="true" config-file="jcef.xml">com.intellij.modules.jcef</depends>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Whack a Mole"
+                           displayType="BALLOON"/>
+
         <toolWindow id="Whack a Mole"
                     anchor="right"
                     icon="/icons/whackAMole.svg"

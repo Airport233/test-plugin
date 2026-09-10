@@ -1,0 +1,3 @@
+<!-- 与 OCR 插件同模式：com.intellij.modules.jcef 可用时模块类进入插件 classloader。
+     本文件留空即可——工具窗工厂仍在主 plugin.xml，JCEF 不可用时靠工厂内 try-catch 走占位。 -->
+<idea-plugin />
